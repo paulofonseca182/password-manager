@@ -1,9 +1,10 @@
 import './App.css';
+import Title from './Title';
 
 function App() {
   return (
     <div>
-      Hello World
+      <Title />
     </div>
   );
 }
