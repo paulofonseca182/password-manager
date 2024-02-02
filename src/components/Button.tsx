@@ -1,10 +1,11 @@
 type ButtonProps = {
   children: React.ReactNode
+  responsibility: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 };
 
-function Button({ children }: ButtonProps) {
+function Button({ children, responsibility }: ButtonProps) {
   return (
-    <button>
+    <button onClick={ (e) => responsibility(e) }>
       {children}
     </button>
   );

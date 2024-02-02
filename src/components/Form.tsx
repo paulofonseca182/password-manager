@@ -1,6 +1,15 @@
 import Button from './Button';
 
-function Form() {
+type FormProps = {
+  responsibility: () => void;
+};
+
+function Form({ responsibility }: FormProps) {
+  const log = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.preventDefault();
+    console.log('aqui');
+  };
+
   return (
     <form>
       <div>
@@ -15,7 +24,7 @@ function Form() {
 
       <div>
         <label htmlFor="password-input">Senha</label>
-        <input id="password-input" type="password" />
+        <input id="password-input" type="password" autoComplete="on" />
       </div>
 
       <div>
@@ -23,11 +32,11 @@ function Form() {
         <input id="url-input" type="text" />
       </div>
 
-      <Button>
+      <Button responsibility={ log }>
         Cadastrar
       </Button>
 
-      <Button>
+      <Button responsibility={ responsibility }>
         Cancelar
       </Button>
     </form>
