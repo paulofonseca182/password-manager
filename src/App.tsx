@@ -20,8 +20,14 @@ function App() {
   return (
     <div>
       <Title />
-      {showButton
-        && <Button responsibility={ changeRegisterTrue }>Cadastrar nova senha</Button>}
+      {showButton && (
+        <Button
+          responsibility={ changeRegisterTrue }
+          validBtn={ false }
+        >
+          Cadastrar nova senha
+        </Button>
+      )}
 
       {newRegister && <Form responsibility={ changeRegisterFalse } />}
 
