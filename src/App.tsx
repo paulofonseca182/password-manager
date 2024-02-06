@@ -12,6 +12,7 @@ function App() {
   const [registeredList, setRegisteredList] = useState<Records[]>([]);
   const [passwordRegisteredMsg, setPasswordRegisteredMsg] = useState(true);
   const [passwordRegisteredCard, setPasswordRegisteredCard] = useState(false);
+  console.log(registeredList.length);
 
   const changeRegisterTrue = () => {
     setNewRegister(true);
@@ -32,6 +33,14 @@ function App() {
     setRegisteredList([...registeredList, newRecord]);
     setPasswordRegisteredMsg(false);
     setPasswordRegisteredCard(true);
+  };
+
+  const removeRecord = (name: string): void => {
+    const newList = registeredList.filter((record) => record.name !== name);
+    setRegisteredList(newList);
+    if (newList.length === 0) {
+      setPasswordRegisteredMsg(true);
+    }
   };
 
   return (
@@ -56,7 +65,8 @@ function App() {
         && registeredList.map((record) => (
           <div key={ record.name }>
             <RecordsCard
-              { ...record }
+              record={ record }
+              removeRecord={ removeRecord }
             />
           </div>
         ))
