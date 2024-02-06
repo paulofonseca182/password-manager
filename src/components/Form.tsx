@@ -1,17 +1,14 @@
 import { useState } from 'react';
 import Button from './Button';
 import { validationData } from '../utils/validationLogin';
+import Records from '../types/typeRecord';
 
 type FormProps = {
   responsibility: () => void;
+  records: ({ name, login, password, url } : Records) => void;
 };
 
-function Form({ responsibility }: FormProps) {
-  const log = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    e.preventDefault();
-    console.log('aqui');
-  };
-
+function Form({ responsibility, records }: FormProps) {
   const data = {
     name: '',
     login: '',
@@ -27,7 +24,7 @@ function Form({ responsibility }: FormProps) {
   const [amountCharacters, setAmountCharacters] = useState(passwordInvalid);
   const [numbers, setNumbers] = useState(passwordInvalid);
   const [special, setSpecial] = useState(passwordInvalid);
-  console.log(dataLogin.password.length);
+
   const changeClassCharacter = () => {
     if (dataLogin.password.length > 7) {
       setCharacters(passwordCheck);
@@ -75,6 +72,13 @@ function Form({ responsibility }: FormProps) {
     } else {
       setValidBtn(true);
     }
+  };
+
+  const registeredPassword = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.preventDefault();
+    records(dataLogin);
+
+    responsibility();
   };
 
   return (
@@ -125,7 +129,7 @@ function Form({ responsibility }: FormProps) {
           />
         </div>
 
-        <Button responsibility={ log } validBtn={ validBtn }>
+        <Button responsibility={ (e) => registeredPassword(e) } validBtn={ validBtn }>
           Cadastrar
         </Button>
 
@@ -133,6 +137,7 @@ function Form({ responsibility }: FormProps) {
           Cancelar
         </Button>
       </form>
+
       {validBtn && (
         <div>
           <p className={ characters }>Possuir 8 ou mais caracteres</p>
