@@ -16,7 +16,7 @@ function RecordsCard({
         data-testid="remove-btn"
         onClick={ () => removeRecord(record.name) }
       >
-        Apagar
+        Apagar ❌
       </button>
     </div>
   );

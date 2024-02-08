@@ -161,11 +161,11 @@ function Form({
 
         <div>
           <Button responsibility={ (e) => registeredPassword(e) } validBtn={ validBtn }>
-            Cadastrar
+            Cadastrar ✅
           </Button>
 
           <Button responsibility={ responsibility }>
-            Cancelar
+            Cancelar ❌
           </Button>
         </div>
       </form>
