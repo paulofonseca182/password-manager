@@ -8,7 +8,10 @@ type FormProps = {
   records: ({ name, login, password, url } : Records) => void;
 };
 
-function Form({ responsibility, records }: FormProps) {
+function Form({
+  responsibility,
+  records,
+}: FormProps) {
   const data = {
     name: '',
     login: '',
@@ -129,13 +132,15 @@ function Form({ responsibility, records }: FormProps) {
           />
         </div>
 
-        <Button responsibility={ (e) => registeredPassword(e) } validBtn={ validBtn }>
-          Cadastrar
-        </Button>
+        <div>
+          <Button responsibility={ (e) => registeredPassword(e) } validBtn={ validBtn }>
+            Cadastrar
+          </Button>
 
-        <Button responsibility={ responsibility }>
-          Cancelar
-        </Button>
+          <Button responsibility={ responsibility }>
+            Cancelar
+          </Button>
+        </div>
       </form>
 
       {validBtn && (

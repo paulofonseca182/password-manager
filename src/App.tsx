@@ -12,7 +12,8 @@ function App() {
   const [registeredList, setRegisteredList] = useState<Records[]>([]);
   const [passwordRegisteredMsg, setPasswordRegisteredMsg] = useState(true);
   const [passwordRegisteredCard, setPasswordRegisteredCard] = useState(false);
-  console.log(registeredList.length);
+  const [hidePassword, setHidePassword] = useState(false);
+  const [hideAsteristics, setHideAsteristics] = useState(true);
 
   const changeRegisterTrue = () => {
     setNewRegister(true);
@@ -43,6 +44,16 @@ function App() {
     }
   };
 
+  const handleChangeHidePassword = () => {
+    if (hidePassword === false) {
+      setHidePassword(true);
+      setHideAsteristics(false);
+    } else {
+      setHidePassword(false);
+      setHideAsteristics(true);
+    }
+  };
+
   return (
     <div>
       <Title />
@@ -56,9 +67,22 @@ function App() {
       )}
 
       {newRegister && (
-        <Form responsibility={ changeRegisterFalse } records={ addNewRecord } />)}
+        <Form
+          responsibility={ changeRegisterFalse }
+          records={ addNewRecord }
+        />)}
 
       {passwordRegisteredMsg && <p>Nenhuma senha cadastrada</p>}
+
+      <form>
+        <label htmlFor="radio-password">Esconder senhas</label>
+        <input
+          checked={ hidePassword }
+          onClick={ () => handleChangeHidePassword() }
+          id="radio-password"
+          type="checkbox"
+        />
+      </form>
 
       {
         passwordRegisteredCard
@@ -67,6 +91,8 @@ function App() {
             <RecordsCard
               record={ record }
               removeRecord={ removeRecord }
+              hidePassword={ hidePassword }
+              hideAsteristics={ hideAsteristics }
             />
           </div>
         ))
