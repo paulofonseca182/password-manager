@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Swal from 'sweetalert2';
 import Button from './Button';
 import { validationData } from '../utils/validationLogin';
 import Records from '../types/typeRecord';
@@ -79,11 +80,20 @@ function Form({
     }
   };
 
+  const alertSucess = () => {
+    Swal.fire({
+      title: 'Success',
+      text: 'Serviço cadastrado com sucesso',
+      icon: 'success',
+      timer: 1500,
+    });
+  };
+
   const registeredPassword = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
     records(dataLogin);
-
     responsibility();
+    alertSucess();
   };
 
   const hideOrShowPasswordSet = (e:React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
