@@ -1,3 +1,5 @@
+import './Button.css';
+
 type ButtonProps = {
   children: React.ReactNode
   responsibility: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
