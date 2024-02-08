@@ -144,7 +144,7 @@ function Form({
             data-testid="show-hide-form-password"
             onClick={ (e) => hideOrShowPasswordSet(e) }
           >
-            mostrar/esconder
+            👀
           </button>
         </div>
 
