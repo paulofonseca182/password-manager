@@ -11,6 +11,7 @@ type FormProps = {
 function Form({
   responsibility,
   records,
+
 }: FormProps) {
   const data = {
     name: '',
@@ -27,6 +28,7 @@ function Form({
   const [amountCharacters, setAmountCharacters] = useState(passwordInvalid);
   const [numbers, setNumbers] = useState(passwordInvalid);
   const [special, setSpecial] = useState(passwordInvalid);
+  const [hideOrShowPassword, setHideOrShowPassword] = useState('password');
 
   const changeClassCharacter = () => {
     if (dataLogin.password.length > 7) {
@@ -84,6 +86,15 @@ function Form({
     responsibility();
   };
 
+  const hideOrShowPasswordSet = (e:React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.preventDefault();
+    if (hideOrShowPassword === 'password') {
+      setHideOrShowPassword('text');
+    } else if (hideOrShowPassword === 'text') {
+      setHideOrShowPassword('password');
+    }
+  };
+
   return (
     <>
       <form>
@@ -116,9 +127,15 @@ function Form({
             name="password"
             value={ dataLogin.password }
             id="password-input"
-            type="password"
+            type={ hideOrShowPassword }
             autoComplete="on"
           />
+          <button
+            data-testid="show-hide-form-password"
+            onClick={ (e) => hideOrShowPasswordSet(e) }
+          >
+            mostrar/esconder
+          </button>
         </div>
 
         <div>
