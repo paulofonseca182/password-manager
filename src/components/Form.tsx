@@ -182,10 +182,11 @@ function Form({
 
       {validBtn && (
         <div className="validation-password">
-          <p className={ characters }>Possuir 8 ou mais caracteres</p>
-          <p className={ amountCharacters }>Possuir até 16 caracteres</p>
-          <p className={ numbers }>Possuir letras e números</p>
-          <p className={ special }>Possuir algum caractere especial</p>
+          <p className="password">A senha deve:</p>
+          <p className={ characters }>- Possuir 8 ou mais caracteres</p>
+          <p className={ amountCharacters }>- Possuir até 16 caracteres</p>
+          <p className={ numbers }>- Possuir letras e números</p>
+          <p className={ special }>- Possuir algum caractere especial</p>
         </div>)}
     </div>
   );

@@ -23,13 +23,15 @@
 }
 
 .validation-password {
-    margin-top: 95px;
     background-color: #4349661f;
     padding: 10px;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    height: 200px;
     border-radius: 10px;
     align-items: flex-start;
+}
+
+.password {
+    color: white;
 }
