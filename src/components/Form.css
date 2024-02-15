@@ -1,0 +1,35 @@
+.form-frame {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #1E2029;
+    width: 700px;
+    margin-top: 25px;
+    border-radius: 10px;
+}
+
+.form-data {
+    padding: 15px;
+}
+
+.required-fields {
+    color: white;
+    font-size: 9px;
+}
+
+.triangle {
+    background-color: #4349661f;
+}
+
+.validation-password {
+    margin-top: 95px;
+    background-color: #4349661f;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 200px;
+    border-radius: 10px;
+    align-items: flex-start;
+}

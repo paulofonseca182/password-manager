@@ -55,7 +55,7 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="password-manager">
       <Title />
       {showButton && (
         <Button

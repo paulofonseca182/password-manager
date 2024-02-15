@@ -3,6 +3,7 @@ import Swal from 'sweetalert2';
 import Button from './Button';
 import { validationData } from '../utils/validationLogin';
 import Records from '../types/typeRecord';
+import './Form.css';
 
 type FormProps = {
   responsibility: () => void;
@@ -106,33 +107,38 @@ function Form({
   };
 
   return (
-    <>
-      <form>
-        <div>
-          <label htmlFor="nameService-input">Nome do serviço</label>
+    <div className="form-frame">
+      <form className="form-data">
+        <div className="form-floating mb-3">
           <input
+            className="form-control"
             onChange={ (e) => handleChangeData(e) }
             name="name"
             value={ dataLogin.name }
             id="nameService-input"
             type="text"
+            placeholder="name@example.com"
           />
+          <label htmlFor="nameService-input">Nome do serviço</label>
         </div>
 
-        <div>
-          <label htmlFor="login-input">Login</label>
+        <div className="form-floating mb-3">
           <input
+            className="form-control"
             onChange={ (e) => handleChangeData(e) }
             value={ dataLogin.login }
             name="login"
             id="login-input"
             type="text"
           />
+          <label htmlFor="login-input">
+            Login*
+          </label>
         </div>
 
-        <div>
-          <label htmlFor="password-input">Senha</label>
+        <div className="form-floating mb-3">
           <input
+            className="form-control"
             onChange={ (e) => handleChangeData(e) }
             name="password"
             value={ dataLogin.password }
@@ -140,6 +146,7 @@ function Form({
             type={ hideOrShowPassword }
             autoComplete="on"
           />
+          <label htmlFor="password-input">Senha*</label>
           <button
             data-testid="show-hide-form-password"
             onClick={ (e) => hideOrShowPasswordSet(e) }
@@ -148,16 +155,19 @@ function Form({
           </button>
         </div>
 
-        <div>
-          <label htmlFor="url-input">URL</label>
+        <div className="form-floating mb-3">
           <input
+            className="form-control"
             onChange={ (e) => handleChangeData(e) }
             name="url"
             value={ dataLogin.url }
             id="url-input"
             type="text"
           />
+          <label htmlFor="url-input">URL</label>
         </div>
+
+        <p className="required-fields">* Campos obrigatórios</p>
 
         <div>
           <Button responsibility={ (e) => registeredPassword(e) } validBtn={ validBtn }>
@@ -171,13 +181,13 @@ function Form({
       </form>
 
       {validBtn && (
-        <div>
+        <div className="validation-password">
           <p className={ characters }>Possuir 8 ou mais caracteres</p>
           <p className={ amountCharacters }>Possuir até 16 caracteres</p>
           <p className={ numbers }>Possuir letras e números</p>
           <p className={ special }>Possuir algum caractere especial</p>
         </div>)}
-    </>
+    </div>
   );
 }
 
