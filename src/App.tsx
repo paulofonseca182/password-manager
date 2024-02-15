@@ -72,32 +72,40 @@ function App() {
           records={ addNewRecord }
         />)}
 
-      {passwordRegisteredMsg && <p>Nenhuma senha cadastrada</p>}
+      {passwordRegisteredMsg && <p className="no-password">Nenhuma senha cadastrada</p>}
 
       <form>
-        <label htmlFor="radio-password">Esconder senhas</label>
-        <input
-          checked={ hidePassword }
-          onClick={ () => handleChangeHidePassword() }
-          id="radio-password"
-          type="checkbox"
-        />
+        <div className="form-check form-switch case-radio-password">
+          <input
+            className="form-check-input"
+            checked={ hidePassword }
+            onClick={ () => handleChangeHidePassword() }
+            id="radio-password"
+            type="checkbox"
+          />
+          <label
+            className="form-check-label label-password"
+            htmlFor="radio-password"
+          >
+            Esconder senhas
+          </label>
+        </div>
       </form>
-
-      {
-        passwordRegisteredCard
-        && registeredList.map((record) => (
-          <div key={ record.name }>
-            <RecordsCard
-              record={ record }
-              removeRecord={ removeRecord }
-              hidePassword={ hidePassword }
-              hideAsteristics={ hideAsteristics }
-            />
-          </div>
-        ))
-      }
-
+      <div className="case-registered">
+        {
+          passwordRegisteredCard
+          && registeredList.map((record) => (
+            <div key={ record.name }>
+              <RecordsCard
+                record={ record }
+                removeRecord={ removeRecord }
+                hidePassword={ hidePassword }
+                hideAsteristics={ hideAsteristics }
+              />
+            </div>
+          ))
+        }
+      </div>
     </div>
   );
 }

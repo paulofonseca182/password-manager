@@ -12,3 +12,26 @@
   flex-direction: column;
   align-items: center;
 }
+
+.no-password {
+  margin-top: 25px;
+  color: white;
+  font-size: x-large;
+}
+
+.case-radio-password {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+.label-password {
+  color: white;
+  margin-left: 10px;
+}
+
+.case-registered {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 850px;
+  margin-bottom: 50px;
+}

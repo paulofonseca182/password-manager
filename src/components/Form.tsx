@@ -117,7 +117,6 @@ function Form({
             value={ dataLogin.name }
             id="nameService-input"
             type="text"
-            placeholder="name@example.com"
           />
           <label htmlFor="nameService-input">Nome do serviço</label>
         </div>
